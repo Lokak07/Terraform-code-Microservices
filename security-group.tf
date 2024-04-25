@@ -13,14 +13,34 @@ module "web_server_sg" {
   }
 }
 
-resource "aws_security_group_rule" "ssh" {
+resource "aws_security_group_rule" "http_ingress" {
+  security_group_id = module.web_server_sg.security_group_id
+  type              = "ingress"
+  from_port         = 80
+  to_port           = 80
+  protocol          = "tcp"
+  cidr_blocks       = ["0.0.0.0/0"]
+  description       = "HTTP"
+}
+
+resource "aws_security_group_rule" "custom_http_ingress" {
+  security_group_id = module.web_server_sg.security_group_id
+  type              = "ingress"
+  from_port         = 8080
+  to_port           = 8080
+  protocol          = "tcp"
+  cidr_blocks       = ["0.0.0.0/0"]
+  description       = "Custom HTTP port"
+}
+
+resource "aws_security_group_rule" "ssh_ingress" {
+  security_group_id = module.web_server_sg.security_group_id
   type              = "ingress"
   from_port         = 22
   to_port           = 22
   protocol          = "tcp"
-  cidr_blocks       = [module.vpc.vpc_cidr_block]
-  security_group_id = module.web_server_sg.security_group_id
+  cidr_blocks       = ["0.0.0.0/0"]
+  description       = "SSH"
 }
-
 
 
