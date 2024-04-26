@@ -66,12 +66,3 @@ module "eks" {
   }
 }
 
-terraform {
-  cloud {
-    organization = "Shakthi-MANJUNATHAN"
-
-    workspaces {
-      name = "microservices"
-    }
-  }
-}

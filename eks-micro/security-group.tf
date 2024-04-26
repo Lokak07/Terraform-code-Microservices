@@ -44,12 +44,3 @@ resource "aws_security_group_rule" "ssh_ingress" {
   description       = "SSH"
 }
 
-terraform {
-  cloud {
-    organization = "Shakthi-MANJUNATHAN"
-
-    workspaces {
-      name = "microservices"
-    }
-  }
-}
