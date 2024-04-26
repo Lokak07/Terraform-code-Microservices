@@ -36,3 +36,13 @@ module "ec2_instance" {
 
 
 }
+
+output "instanceid" {
+  value = module.ec2_instance.id
+}
+
+resource "aws_volume_attachment" "micro-attachment" {
+  device_name = "/dev/sdh"
+  volume_id   = aws_ebs_volume.micro-services.id
+  instance_id = module.ec2_instance.id
+}
