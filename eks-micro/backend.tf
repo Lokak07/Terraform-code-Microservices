@@ -1,4 +1,14 @@
 terraform {
+  cloud {
+    organization = "Shakthi-MANJUNATHAN"
+
+    workspaces {
+      name = "microservices"
+    }
+  }
+}
+
+terraform {
   backend "remote" {
     hostname     = "app.terraform.io"
     organization = "your-organization"
