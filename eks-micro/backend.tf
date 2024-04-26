@@ -1,22 +1,11 @@
 terraform {
-  cloud {
-    organization = "Shakthi-MANJUNATHAN"
+  backend "remote" {
+    hostname     = "app.terraform.io"
+    organization = "Shakthi-MANJUNATHAN"  # Update with your organization name
+    token        = var.TF_TOKEN
 
     workspaces {
       name = "microservices"
     }
   }
 }
-
-terraform {
-  backend "remote" {
-    hostname     = "app.terraform.io"
-    organization = "your-organization"
-    token        = var.TF_TOKEN
-
-    workspaces {
-      name = "your-workspace"
-    }
-  }
-}
-
