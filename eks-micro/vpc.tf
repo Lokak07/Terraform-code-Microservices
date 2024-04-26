@@ -25,3 +25,12 @@ output "vpc_id" {
 
 }
 
+terraform {
+  cloud {
+    organization = "Shakthi-MANJUNATHAN"
+
+    workspaces {
+      name = "microservices"
+    }
+  }
+}

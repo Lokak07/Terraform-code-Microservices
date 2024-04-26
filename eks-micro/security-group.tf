@@ -23,6 +23,7 @@ resource "aws_security_group_rule" "http_ingress" {
   description       = "HTTP"
 }
 
+
 resource "aws_security_group_rule" "custom_http_ingress" {
   security_group_id = module.web_server_sg.security_group_id
   type              = "ingress"
@@ -41,4 +42,14 @@ resource "aws_security_group_rule" "ssh_ingress" {
   protocol          = "tcp"
   cidr_blocks       = ["0.0.0.0/0"]
   description       = "SSH"
+}
+
+terraform {
+  cloud {
+    organization = "Shakthi-MANJUNATHAN"
+
+    workspaces {
+      name = "microservices"
+    }
+  }
 }
