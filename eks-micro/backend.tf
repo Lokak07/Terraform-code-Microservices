@@ -1,10 +1,12 @@
-/*
 terraform {
-  backend "s3" {
-    bucket = "micro-service-bucket-eks"
-    key    = "micro-service-bucket-eks/eks"
-    region = "us-east-1"
+  backend "remote" {
+    hostname     = "app.terraform.io"
+    organization = "your-organization"
+    token        = "Vdmy7nkWmaOeyA.atlasv1.qiRCblGtXbARSZzCxrPrFdCWgTZGj4P9vM3anVJcCBcezOoRXheRgPFUgXIqSxHQfKA"  # Add your token here
+
+    workspaces {
+      name = "your-workspace"
+    }
   }
 }
 
-*/
