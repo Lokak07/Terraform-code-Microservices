@@ -5,7 +5,7 @@ terraform {
     
 
     workspaces {
-      name = "ec2-setup"
+      name = "microservices"
     }
   }
 }
